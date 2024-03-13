@@ -25,8 +25,7 @@ const City = () => {
     rowLayout
   } = styles
   return (
-    <SafeAreaView style={wrapper}>
-      <View style={container}>
+    <SafeAreaView style={container}>
         <ImageBackground
           source={require('../../assets/City.jpg')}
           style={image}
@@ -56,19 +55,13 @@ const City = () => {
             />
           </View>
         </ImageBackground>
-      </View>
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    backgroundColor: 'navy'
-  },
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0
   },
   image: {
     flex: 1
