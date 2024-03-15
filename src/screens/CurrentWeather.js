@@ -1,29 +1,51 @@
 import React from 'react'
 import { View, Text, SafeAreaView, StyleSheet, StatusBar } from 'react-native'
-
 import { Feather } from '@expo/vector-icons'
+import { weatherType } from '../utilities/weatherType'
+
 import RowText from '../components/RowText'
 
 const CurrentWeather = () => {
+  const {
+    wrapper,
+    container,
+    temp,
+    feels,
+    highLowWrapper,
+    highLow,
+    bodyWrapper,
+    descritpion,
+    message
+  } = styles
 
-  const { wrapper, container, temp, feels, highLowWrapper, highLow, bodyWrapper, descritpion, message } = styles;
-  
   return (
     <SafeAreaView style={wrapper}>
       <View style={container}>
-        <Feather name="sun" size={100} color="black" />
+        <Feather name="sun" size={100} color="#f9bc60" />
         <Text style={temp}>6</Text>
         <Text style={feels}>Feels like it is 5</Text>
-        <RowText firstMessage="Hight: 8" secondMessage=" Low: 6" containerStyles={highLowWrapper} firstMessageStyles={highLow} secondMessageStyles={highLow} />
+        <RowText
+          firstMessage="Hight: 8"
+          secondMessage=" Low: 6"
+          containerStyles={highLowWrapper}
+          firstMessageStyles={highLow}
+          secondMessageStyles={highLow}
+        />
       </View>
-      <RowText firstMessage="It's Sunny" secondMessage="It's t-shirt Time !" containerStyles={bodyWrapper} firstMessageStyles={descritpion} secondMessageStyles={message} />
+      <RowText
+        firstMessage="It's Sunny"
+        secondMessage={weatherType['Thunderstorm'].message}
+        containerStyles={bodyWrapper}
+        firstMessageStyles={descritpion}
+        secondMessageStyles={message}
+      />
     </SafeAreaView>
   )
-}
+};
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: 'pink',
+    backgroundColor: '#abd1c6',
     flex: 1
   },
   container: {
@@ -33,15 +55,15 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight
   },
   temp: {
-    color: 'black',
+    color: '#001e1d',
     fontSize: 50
   },
   feels: {
-    color: 'black',
+    color: '#001e1d',
     fontSize: 30
   },
   highLow: {
-    color: 'black',
+    color: '#001e1d',
     fontSize: 20
   },
   highLowWrapper: {
@@ -53,13 +75,13 @@ const styles = StyleSheet.create({
     marginBottom: 40
   },
   descritpion: {
-    color: 'black',
+    color: '#001e1d',
     fontSize: 48
   },
   message: {
-    color: 'black',
+    color: '#001e1d',
     fontSize: 30
   }
-})
+});
 
-export default CurrentWeather
+export default CurrentWeather;
