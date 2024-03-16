@@ -9,7 +9,7 @@ import City from '../screens/City'
 
 const Tab = createBottomTabNavigator()
 
-const Tabs = () => {
+const Tabs = ({ weather }) => {
     return (
         <Tab.Navigator
         screenOptions={{
@@ -31,7 +31,6 @@ const Tabs = () => {
       >
         <Tab.Screen
           name="Current"
-          component={CurrentWeather}
           options={{
             tabBarIcon: ({ focused }) => (
               <Feather
@@ -41,8 +40,8 @@ const Tabs = () => {
               />
             )
           }}
-        />
-        <Tab.Screen name="Upcoming" component={UpComingWeather} options={{
+        >{()=> <CurrentWeather weatherData={weather.list[0]} />}</Tab.Screen>
+        <Tab.Screen name="Upcoming" options={{
             tabBarIcon: ({ focused }) => (
               <Feather
                 name="clock"
@@ -50,7 +49,8 @@ const Tabs = () => {
                 color={focused ? '#fffffe' : 'gray'}
               />
             )
-          }}/>
+          }}>{() => <UpComingWeather weatherData={weather.list} />} </Tab.Screen>
+
         <Tab.Screen name="City" component={City} options={{
             tabBarIcon: ({ focused }) => (
               <Feather
