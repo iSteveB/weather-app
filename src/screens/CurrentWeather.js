@@ -33,12 +33,16 @@ const CurrentWeather = ({ weatherData }) => {
 				},
 			]}>
 			<View style={container}>
-				<Feather name={weatherType[weatherCondition]?.icon} size={100} color='#f9bc60' />
-				<Text style={tempStyles}>{Math.floor(temp)}°C</Text>
+				<Feather
+					name={weatherType[weatherCondition]?.icon}
+					size={100}
+					color='#f9bc60'
+				/>
+				<Text style={tempStyles}>{Math.round(temp)}°C</Text>
 				<Text style={feelsStyles}>Feels like it is {feels_like}</Text>
 				<RowText
-					firstMessage={`High: ${Math.floor(temp_max)}`}
-					secondMessage={` Low: ${Math.floor(temp_min)}`}
+					firstMessage={`High: ${Math.round(temp_max)}`}
+					secondMessage={` Low: ${Math.round(temp_min)}`}
 					containerStyles={highLowWrapper}
 					firstMessageStyles={highLow}
 					secondMessageStyles={highLow}
